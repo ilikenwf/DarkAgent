@@ -11,28 +11,21 @@ namespace DarkAgent_RAT.src.Events
     {
         public readonly PasswordInfo passwordInfo;
         public readonly string RemoteIP;
-        private Object locky = new Object();
+
         public PasswordEventArgs(PasswordInfo PasswordInfo, string ip)
         {
-            lock(locky)
-            {
-                this.passwordInfo = PasswordInfo;
-                this.RemoteIP = ip;
-            }
+            this.passwordInfo = PasswordInfo;
+            this.RemoteIP = ip;
         }
     }
 
     public class PasswordEvent
     {
         public static event GetPasswordHandler passwords;
-        private static Object locky = new Object();
         public static void OnGetPasswords(PasswordEventArgs e)
         {
-            lock(locky)
-            {
-                if (passwords != null)
-                    passwords(new object(), e);
-            }
+            if (passwords != null)
+                passwords(new object(), e);
         }
     }
 }

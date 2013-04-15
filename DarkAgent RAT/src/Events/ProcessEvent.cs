@@ -12,28 +12,21 @@ namespace DarkAgent_RAT.src.Events
     {
         public readonly ProcessInfo processInfo;
         public readonly string RemoteIP;
-        private static Object locky = new Object();
+
         public ProcessEventArgs(ProcessInfo processInfo, string ip)
         {
-            lock(locky)
-            {
-                this.processInfo = processInfo;
-                this.RemoteIP = ip;
-            }
+            this.processInfo = processInfo;
+            this.RemoteIP = ip;
         }
     }
 
     public class ProcessEvent
     {
         public static event GetProcessesHandler ClientProcesses;
-        private static Object locky = new Object();
         public static void OnGetProcesses(ProcessEventArgs e)
         {
-            lock(locky)
-            {
-                if (ClientProcesses != null)
-                    ClientProcesses(new object(), e);
-            }
+            if (ClientProcesses != null)
+                ClientProcesses(new object(), e);
         }
     }
 }

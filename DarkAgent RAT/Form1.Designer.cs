@@ -68,24 +68,10 @@
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader28 = new System.Windows.Forms.ColumnHeader();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.listView4 = new System.Windows.Forms.ListView();
@@ -98,33 +84,32 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createListenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopListenerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(691, 365);
+            this.tabControl1.Size = new System.Drawing.Size(691, 392);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -389,127 +374,21 @@
             this.columnHeader3.Text = "Time";
             this.columnHeader3.Width = 113;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.splitContainer1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(683, 366);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Traffic";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.label3);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.listView2);
-            this.splitContainer1.Size = new System.Drawing.Size(677, 360);
-            this.splitContainer1.SplitterDistance = 196;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Connected clients: 0";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 44);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Total sended packets: 0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Total incoming packets: 0";
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader28});
-            this.listView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.Location = new System.Drawing.Point(0, 0);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(477, 360);
-            this.listView2.TabIndex = 0;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "nr.";
-            this.columnHeader5.Width = 45;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Packet Id";
-            this.columnHeader6.Width = 64;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Type";
-            this.columnHeader7.Width = 68;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Packet Length";
-            this.columnHeader8.Width = 103;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "Remote Address";
-            this.columnHeader9.Width = 117;
-            // 
-            // columnHeader28
-            // 
-            this.columnHeader28.Text = "Time";
-            this.columnHeader28.Width = 88;
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(683, 339);
+            this.tabPage5.Size = new System.Drawing.Size(683, 366);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Server/Settings";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.groupBox3);
+            this.groupBox1.Controls.Add(this.listView4);
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(667, 357);
@@ -517,44 +396,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox2);
-            this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(226, 19);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(178, 158);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "AI ( Artificial Intelligence )";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(6, 42);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 17);
-            this.checkBox2.TabIndex = 5;
-            this.checkBox2.Text = "Website visiter";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 19);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Talker";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox4);
             this.groupBox3.Controls.Add(this.checkBox3);
             this.groupBox3.Controls.Add(this.numericUpDown1);
-            this.groupBox3.Controls.Add(this.listView4);
             this.groupBox3.Controls.Add(this.button5);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.button4);
@@ -563,10 +409,20 @@
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Location = new System.Drawing.Point(6, 19);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(202, 306);
+            this.groupBox3.Size = new System.Drawing.Size(202, 333);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Server Sockets";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(10, 278);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(113, 17);
+            this.checkBox4.TabIndex = 7;
+            this.checkBox4.Text = "FileTransfer server";
+            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -599,13 +455,14 @@
             // 
             this.listView4.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader30,
-            this.columnHeader31});
+            this.columnHeader31,
+            this.columnHeader5});
             this.listView4.FullRowSelect = true;
             this.listView4.GridLines = true;
-            this.listView4.Location = new System.Drawing.Point(6, 19);
+            this.listView4.Location = new System.Drawing.Point(214, 41);
             this.listView4.MultiSelect = false;
             this.listView4.Name = "listView4";
-            this.listView4.Size = new System.Drawing.Size(190, 174);
+            this.listView4.Size = new System.Drawing.Size(438, 192);
             this.listView4.TabIndex = 4;
             this.listView4.UseCompatibleStateImageBehavior = false;
             this.listView4.View = System.Windows.Forms.View.Details;
@@ -613,12 +470,12 @@
             // columnHeader30
             // 
             this.columnHeader30.Text = "Port";
-            this.columnHeader30.Width = 87;
+            this.columnHeader30.Width = 74;
             // 
             // columnHeader31
             // 
             this.columnHeader31.Text = "Key";
-            this.columnHeader31.Width = 91;
+            this.columnHeader31.Width = 265;
             // 
             // button5
             // 
@@ -641,7 +498,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(110, 277);
+            this.button4.Location = new System.Drawing.Point(110, 303);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
@@ -677,7 +534,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(10, 277);
+            this.button3.Location = new System.Drawing.Point(10, 303);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -689,12 +546,37 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2007Black;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createListenerToolStripMenuItem,
+            this.stopListenerToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(155, 48);
+            // 
+            // createListenerToolStripMenuItem
+            // 
+            this.createListenerToolStripMenuItem.Name = "createListenerToolStripMenuItem";
+            this.createListenerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.createListenerToolStripMenuItem.Text = "Create listener";
+            // 
+            // stopListenerToolStripMenuItem
+            // 
+            this.stopListenerToolStripMenuItem.Name = "stopListenerToolStripMenuItem";
+            this.stopListenerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.stopListenerToolStripMenuItem.Text = "Stop listener";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "UPNP";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(691, 365);
+            this.ClientSize = new System.Drawing.Size(691, 392);
             this.Controls.Add(this.tabControl1);
+            this.DoubleBuffered = true;
             this.EnableGlass = false;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -705,19 +587,13 @@
             this.tabPage1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -730,13 +606,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
@@ -755,13 +624,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader26;
         private System.Windows.Forms.ColumnHeader columnHeader27;
         private System.Windows.Forms.TabPage tabPage5;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader28;
-        public System.Windows.Forms.ListView listView2;
         public System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.ColumnHeader columnHeader20;
         private System.Windows.Forms.ColumnHeader columnHeader29;
@@ -782,16 +646,18 @@
         private System.Windows.Forms.ColumnHeader columnHeader30;
         private System.Windows.Forms.ColumnHeader columnHeader31;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.ToolStripMenuItem getPasswordsToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.ImageList ClientScreens;
         private System.Windows.Forms.ToolStripMenuItem keyloggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteControlToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.ToolStripMenuItem clipboardManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToClipboardToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem createListenerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopListenerToolStripMenuItem;
 
     }
 }

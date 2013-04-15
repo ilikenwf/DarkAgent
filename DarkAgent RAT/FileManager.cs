@@ -10,6 +10,9 @@ using DarkAgent_RAT.src.Network.DataNetwork.Packets.Send;
 using DarkAgent_RAT.src.Network.DataNetwork;
 using DarkAgent_RAT.src.Objects;
 using System.IO;
+using DarkAgent_RAT.src.Network.FileServer;
+using DarkAgent_RAT.src.Network.FileServer.Packets.Send;
+using DarkAgent_RAT.src.Network.FileServer.Packets;
 
 namespace DarkAgent_RAT
 {
@@ -207,7 +210,7 @@ namespace DarkAgent_RAT
 
         private void uploadTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*if (!BackgroundLocation.EndsWith("\\"))
+            if (!BackgroundLocation.EndsWith("\\"))
                 BackgroundLocation += "\\";
 
             using(OpenFileDialog dialog = new OpenFileDialog())
@@ -223,12 +226,12 @@ namespace DarkAgent_RAT
 
                     FileInfo size = new FileInfo(dialog.FileName);
                     info.FileSize = size.Length;
-                    //info.Id = (short)(FileClientProcessor.Instance._clientList[ClientID]._FileTransfer.Count + 1);
+                    info.Id = (short)(FileClientProcessor.Instance._clientList[ClientID]._FileTransfer.Count + 1);
                     info.type = 0;
                     info.FileName = size.Name;
                     FileClientProcessor.Instance._clientList[ClientID].SendFile(info, File.ReadAllBytes(dialog.FileName), S_FileTransferSendBegin.SendType.FileManager);
                 }
-            }*/
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

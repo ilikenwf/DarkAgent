@@ -11,28 +11,20 @@ namespace DarkAgent_RAT.src.Events
     {
         public readonly string RemoteIP;
         public Image ScreenImage;
-        private Object locky = new Object();
         public RemoteControlEventArgs(string RemoteIP, Image ScreenImage)
         {
-            lock(locky)
-            {
-                this.RemoteIP = RemoteIP;
-                this.ScreenImage = ScreenImage;
-            }
+            this.RemoteIP = RemoteIP;
+            this.ScreenImage = ScreenImage;
         }
     }
 
     public class RemoteControlEvent
     {
         public static event RemoteControlHandler RemoteControl;
-        private static Object locky = new Object();
         public static void OnRemoteControl(RemoteControlEventArgs e)
         {
-            lock(locky)
-            {
-                if (RemoteControl != null)
-                    RemoteControl(new object(), e);
-            }
+            if (RemoteControl != null)
+                RemoteControl(new object(), e);
         }
     }
 }

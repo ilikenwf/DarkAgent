@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkAgent RAT", "DarkAgent RAT\DarkAgent RAT.csproj", "{49AEC145-CFF1-47F6-BAB8-8ACC3CE8A331}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkAgent Client", "DarkAgent Client\DarkAgent Client.csproj", "{9DAD6F54-9111-4BF4-88CC-93376B408F39}"

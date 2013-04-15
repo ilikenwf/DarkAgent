@@ -31,11 +31,6 @@ namespace DarkAgent_RAT.src.Network.DataNetwork.Packets
             RegisterPacket(new PacketType("Get Clipboard",          0x0010, typeof(R_GetClipboard)));
             RegisterPacket(new PacketType("Get FileServer RemoteIP",0x0011, typeof(R_RemoteIP)));
 
-            RegisterPacket(new PacketType("FileTransfer Begin",     0x0012, typeof(R_FileTransferBegin)));
-            RegisterPacket(new PacketType("FileTransfer Data",      0x0013, typeof(R_FileTransferSend)));
-            RegisterPacket(new PacketType("FileTransfer Complete",  0x0014, typeof(R_FileTransferEnd)));
-
-
             RegisterOutgoingPacket(new PacketType("MesageBox", 0x0000, null));
             RegisterOutgoingPacket(new PacketType("Cursor Position", 0x0001, null));
             RegisterOutgoingPacket(new PacketType("Delete File", 0x0002, null));
@@ -79,15 +74,8 @@ namespace DarkAgent_RAT.src.Network.DataNetwork.Packets
         public static Type ProcessPacket(byte[] packet, string IP)
         {
             if (packetList.ContainsKey((short)packet[0]))
-            {
-                TrafficLogger.AddLog(new TrafficInfo(packet[0], "Incoming, " + packetList[(short)packet[0]].Name, packet.Length.ToString(), IP, packet));
                 return packetList[(short)packet[0]].Packet;
-            }
-            else
-            {
-                TrafficLogger.AddLog(new TrafficInfo(packet[0], "Incoming unknown packet", packet.Length.ToString(), IP, packet));
-                return null;
-            }
+            return null;
         }
 
         private class PacketType

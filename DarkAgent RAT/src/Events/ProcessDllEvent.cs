@@ -11,28 +11,21 @@ namespace DarkAgent_RAT.src.Events
     {
         public readonly ProcessDllInfo _processDllInfo;
         public readonly string RemoteIP;
-        private Object locky = new Object();
+
         public GetProcessesDLLEventArgs(ProcessDllInfo processDllInfo, string ip)
         {
-            lock(locky)
-            {
-                this._processDllInfo = processDllInfo;
-                this.RemoteIP = ip;
-            }
+            this._processDllInfo = processDllInfo;
+            this.RemoteIP = ip;
         }
     }
 
     public class GetProcessesDLLEvent
     {
         public static event GetProcessesDLLHandler ClientProcessesDLL;
-        private static Object locky = new Object();
         public static void OnGetProcessesDLL(GetProcessesDLLEventArgs e)
         {
-            lock(locky)
-            {
-                if (ClientProcessesDLL != null)
-                    ClientProcessesDLL(new object(), e);
-            }
+            if (ClientProcessesDLL != null)
+                ClientProcessesDLL(new object(), e);
         }
     }
 }

